@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView intensityText;
     private Slider intensitySlider;
     private Button inputLightButton;
+    private LinearLayout containerSlider;
 
     private boolean isLightOn=  false;
     private LightStatus lightStatus;
@@ -35,8 +37,11 @@ public class MainActivity extends AppCompatActivity {
         intensitySlider =  findViewById(R.id.intensityLightSlider);
         intensityText = findViewById(R.id.intensityLightText);
         inputLightButton = findViewById(R.id.toggleLightButton);
+        containerSlider = findViewById(R.id.containerSlider);
 
         lightStatus = new LightStatus();
+        containerSlider.setVisibility(isLightOn?View.VISIBLE :View.INVISIBLE);
+
 
         StorageController.getInstance().getStatus(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -49,12 +54,14 @@ public class MainActivity extends AppCompatActivity {
                     if(lightStatusFromDB==null){
                         isLightOn= false;
                         verifyButtonColor(false);
+                        containerSlider.setVisibility(View.INVISIBLE);
                         intensitySlider.setValue(0.0f);
                         intensityText.setText("0%");
                         return;
                     }
                     int value =  (int) lightStatusFromDB.getIntensity();
                     isLightOn =  lightStatusFromDB.isLightOn();
+                    containerSlider.setVisibility(isLightOn?View.VISIBLE :View.INVISIBLE);
                     verifyButtonColor(isLightOn);
                     intensitySlider.setValue(lightStatusFromDB.getIntensity());
                     intensityText.setText(value+"%");
@@ -69,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 isLightOn = !isLightOn;
+                containerSlider.setVisibility(isLightOn?View.VISIBLE :View.INVISIBLE);
                 verifyButtonColor(isLightOn);
                 lightStatus.setLightOn(isLightOn);
                 StorageController.getInstance().saveStatus(lightStatus);

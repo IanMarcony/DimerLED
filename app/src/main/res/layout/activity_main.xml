@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/background_color"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:text="Dimer LED"
+        android:textColor="@color/primary_color"/>
+
+    <Button
+        android:id="@+id/toggleLightButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_light"
+        app:backgroundTint="@color/dark_color"
+        app:iconTint="@color/secondary_color"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
+        android:padding="30dp"
+         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/intensityLightSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:stepSize="10.0"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            app:thumbColor="@color/secondary_color"
+            app:trackColor="@color/secondary_color"
+            tools:ignore="SpeakableTextPresentCheck" />
+        <TextView
+            android:id="@+id/intensityLightText"
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:textColor="@color/secondary_color"
+            android:textAlignment="center"
+            android:text="100%"/>
+    </LinearLayout>
+</LinearLayout>

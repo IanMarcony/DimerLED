@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "38453910056",
+    "project_id": "dimer-led",
+    "storage_bucket": "dimer-led.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38453910056:android:f80e6cf6ad9f4f00ee331d",
+        "android_client_info": {
+          "package_name": "br.com.uea.est.dimerled"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38453910056-v0arrsaat7haosrs9q543belcnke19fd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEZ6iBwvOpmDcCYI89fsE5uenn0sWWfts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38453910056-v0arrsaat7haosrs9q543belcnke19fd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

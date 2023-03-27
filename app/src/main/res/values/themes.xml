@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.DimerLED" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_color</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/background_color</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">#FF9800</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

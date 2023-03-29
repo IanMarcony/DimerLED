@@ -1,6 +1,12 @@
 package br.com.uea.est.dimerled.controllers;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -24,12 +30,21 @@ public class StorageController {
         return  controller;
     }
 
-    public void saveStatus(LightStatus lightStatus){
+    public void saveStatus(Context context, LightStatus lightStatus){
         Map<String, LightStatus> lightStatusMap = new HashMap<>();
 
         lightStatusMap.put(Constants.DEFAULT_KEY, lightStatus);
 
-        databaseReference.setValue(lightStatusMap);
+        databaseReference.setValue(lightStatusMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (!task.isSuccessful()) {
+                    Toast.makeText(context, "Ocorreu erro de comunicação com o servidor", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(context, "Atualizou", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
 

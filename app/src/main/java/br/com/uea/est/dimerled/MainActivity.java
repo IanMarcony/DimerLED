@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 containerSlider.setVisibility(isLightOn?View.VISIBLE :View.INVISIBLE);
                 verifyButtonColor(isLightOn);
                 lightStatus.setLightOn(isLightOn);
-                StorageController.getInstance().saveStatus(lightStatus);
+                StorageController.getInstance().saveStatus(getApplicationContext(),lightStatus);
             }
         });
 
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 float value = slider.getValue();
                 lightStatus.setIntensity(value);
 
-                StorageController.getInstance().saveStatus(lightStatus);
+                StorageController.getInstance().saveStatus(getApplicationContext(),lightStatus);
             }
         });
 
